@@ -22,7 +22,7 @@ const ScrollableVideo = ({
     const c = container.current;
 
     // Configure Speed
-    const playbackConst = window.outerHeight * (1 / speed);
+    const playbackConst = window.innerHeight * (1 / speed);
     let duration = playbackConst;
     let containerHeight = 0;
     
@@ -39,7 +39,7 @@ const ScrollableVideo = ({
       var totalPixels = containerHeight - window.innerHeight;
       var pixelsPerSecond = totalPixels / duration;
       var currentTime =  currentPixel / pixelsPerSecond;
-      v.currentTime = Math.min(currentTime, duration);
+      v.currentTime = currentTime;
       window.requestAnimationFrame(update);
     };
     window.requestAnimationFrame(update);
